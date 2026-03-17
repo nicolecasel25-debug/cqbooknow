@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Quarters USA — Furnished Corporate Housing Since 2001</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #2D5A27;
+      --green-dark: #1e3f1b;
+      --sage: #4A7C59;
+      --cream: #F5F0E8;
+      --text: #1a1a1a;
+      --text-light: #555;
+      --white: #ffffff;
+      --red: #d32f2f;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+      padding: 0.5rem 2rem;
+    }
+
+    .navbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-container img {
+      height: 260px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.3rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(45,90,39,0.3);
+    }
+
+    .nav-btn svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: 280px;
+      min-height: calc(100vh - 68px);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3.5rem 2rem 3rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: var(--cream);
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      display: block;
+    }
+
+    .hero > *:not(.hero-bg) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-headline h1 {
+      font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtext {
+      text-align: center;
+      max-width: 620px;
+      font-size: 1.02rem;
+      font-weight: 400;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.65;
+    }
+
+    .hero-tagline {
+      text-align: center;
+      font-size: 0.95rem;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--sage);
+      margin-bottom: 2.75rem;
+    }
+
+    /* ===== HERO CONTENT CARD ===== */
+    .hero-card {
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-card-left {
+      background: var(--green);
+      padding: 2.8rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .hero-card-left h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1.1rem;
+      line-height: 1.3;
+    }
+
+    .hero-card-left p {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-left p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-card-right {
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero-card-right img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== FORM SECTION ===== */
+    .form-section {
+      width: 100%;
+      max-width: 980px;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 6px 35px rgba(0,0,0,0.07);
+      padding: 2.5rem 3rem 3rem;
+    }
+
+    .form-section h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem 2.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 0.01em;
+    }
+
+    .form-group label .req {
+      color: var(--red);
+      margin-left: 1px;
+    }
+
+    .form-group input,
+    .form-group select {
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid #ccc;
+      padding: 0.55rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s;
+      border-radius: 0;
+      -webkit-appearance: none;
+      width: 100%;
+    }
+
+    .form-group input::placeholder {
+      color: #b5b5b5;
+      font-weight: 300;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-bottom-color: var(--green);
+    }
+
+    .form-group select {
+      cursor: pointer;
+      color: #b5b5b5;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 0 center;
+    }
+
+    .form-group select option {
+      color: var(--text);
+    }
+
+    .form-group select:has(option:checked:not([value=""])) {
+      color: var(--text);
+    }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      margin-top: 0.75rem;
+    }
+
+    .form-submit button {
+      width: 100%;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .form-submit button:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45,90,39,0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 4rem;
+      background: var(--green);
+      padding: 1.4rem 2rem;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card-right {
+        padding: 1.5rem;
+      }
+
+      .hero-card-right img {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.5rem 1rem;
+      }
+
+      .logo-container img {
+        height: 42px;
+      }
+
+      .nav-btn {
+        font-size: 0.62rem;
+        padding: 0.5rem 0.8rem;
+        gap: 0.3rem;
+      }
+
+      .hero {
+        padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .form-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .hero-card-left {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-ctas {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .nav-btn {
+        font-size: 0.58rem;
+        padding: 0.45rem 0.65rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .logo-container img {
+        height: 36px;
+      }
+
+      .hero-headline h1 {
+        font-size: 1.6rem;
+      }
+
+      .form-section {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="logo-container">
+        <img src="./logo.png" alt="Corporate Quarters USA">
+      </div>
+      <div class="nav-ctas">
+        <a href="tel:8666336169" class="nav-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Today 866-633-6169 ext 1
+        </a>
+        <a href="sms:4073385898" class="nav-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text Us 407-338-5898
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Background image -->
+    <div class="hero-bg">
+      <img src="./617956262_1463236312477719_4816162462375552336_n.jpg" alt="Furnished corporate apartment">
+    </div>
+
+    <div class="hero-headline">
+      <h1>Request furnished housing placement in minutes.</h1>
+    </div>
+    <p class="hero-subtext">
+      Housing built to support FEMA response, government assignments, and extended stays.
+    </p>
+    <p class="hero-tagline">Your Trusted Source Since 2001</p>
+
+    <!-- HERO CONTENT CARD -->
+    <div class="hero-card">
+      <div class="hero-card-left">
+        <div class="hero-card-icon">🏠</div>
+        <h2>Secure Your Corporate Housing</h2>
+        <p>
+          Corporate Quarters USA provides fully furnished apartments and homes for government agencies,
+          FEMA responders, utility restoration crews, and corporate relocation clients nationwide.
+        </p>
+        <p>
+          Woman-owned and operating since 2001, we deliver move-in-ready housing with flexible
+          lease terms — wherever your mission takes you.
+        </p>
+      </div>
+      <div class="hero-card-right">
+        <img src="./green map.png" alt="CQUSA nationwide coverage map">
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-section">
+      <h3>Request Housing Availability</h3>
+      <form name="contact" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="first_name" placeholder="First name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="last_name" placeholder="Last name" required>
+          </div>
+          <div class="form-group">
+            <label>Company / Organization</label>
+            <input type="text" name="company" placeholder="Agency or company name">
+          </div>
+          <div class="form-group">
+            <label>Referred By</label>
+            <input type="text" name="referred_by" placeholder="How did you hear about us?">
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="you@agency.gov" required>
+          </div>
+          <div class="form-group">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="(555) 123-4567" required>
+          </div>
+          <div class="form-group">
+            <label>Travel Location <span class="req">*</span></label>
+            <input type="text" name="travel_location" placeholder="City, State" required>
+          </div>
+          <div class="form-group">
+            <label>Unit Preferences</label>
+            <input type="text" name="unit_preferences" placeholder="Size, floor level, ADA requirements">
+          </div>
+          <div class="form-group">
+            <label>Arrival Date <span class="req">*</span></label>
+            <input type="date" name="arrival_date" required>
+          </div>
+          <div class="form-group">
+            <label>Departure Date</label>
+            <input type="date" name="departure_date">
+          </div>
+          <div class="form-group">
+            <label>Traveling with Pets? <span class="req">*</span></label>
+            <select name="pets" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pet Info — Type / Breed / Weight</label>
+            <input type="text" name="pet_info" placeholder="e.g. Dog / Labrador / 65 lbs">
+          </div>
+          <div class="form-submit">
+            <button type="submit">Request Housing Availability</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      &copy; 2026 Corporate Quarters USA &nbsp;|&nbsp; 1809 E Broadway Street, Oviedo FL 32765 &nbsp;|&nbsp;
+      <a href="mailto:NCasel@staycqusa.com">NCasel@staycqusa.com</a> &nbsp;|&nbsp;
+      <a href="https://staycqusa.com">staycqusa.com</a>
+    </p>
+  </footer>
+
+</body>
+</html>
